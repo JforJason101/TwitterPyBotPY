@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# CodeStream ignored files
+/../../TwitterPyBotPY\.idea/codestream.xml
+# Datasource local storage ignored files
+/../../../../../../../../../:\Users\Jaskaran Singh\OneDrive - devmonton\MyRepo\GitHub\MyPycharmProjects\TwitterPyBotPY\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
