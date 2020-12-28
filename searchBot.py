@@ -1,7 +1,8 @@
 import tweepy
 import logging
 import time
-
+import os
+from os import environ
 print("Hi! This is the first iteration of the Twitter Bot!")
 time.sleep(5)
 logging.basicConfig(level=logging.INFO)
