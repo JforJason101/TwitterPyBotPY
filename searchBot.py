@@ -3,13 +3,14 @@ import logging
 import time
 
 print("Hi! This is the first iteration of the Twitter Bot!")
+time.sleep(5)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
-consumer_key = "v7IYdMEWVFEQQ3mWpVicChW5G"
-consumer_secret = "PAsIyVvRL63jwEDzj6Yg8utwYQNKWp1jlm1xTvadDVjyLzmlOu"
-key = "1342268696425758722-iE39zyqh1sB5eHwk6D9vLwBoavt2db"
-secret = "TdgmGcEpQijYML7o6PyyoUq7Dy5vFcT8TyQNR44JlE6m5"
+consumer_key = "F7h7NoPTabp1XDADhBboO11lX"
+consumer_secret = "GoOYoFJ82or7XrKZF5yeN0rLz37QifH5DGilDURZTT34drnatw"
+key = "1342268696425758722-l3nuC7FzCTHEAE1gWvwEpfyOoeJjiP"
+secret = "gnA638d7G1OIxzKrz0Xh1y9pvoLVIxG3LGc4PAsVqv3nw"
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(key, secret)
@@ -19,12 +20,11 @@ try:
 except Exception as e:
     logger.error("Error during authentication", exc_info=True)
     raise e
-logger.info("Authenticated")
+logger.info(" --> AUTHENTICATED!")
 
 ### ID --> READ and WRITE
 
 FILE_NAME = "last_seen.txt"
-
 
 # READ
 def read_last_seen(FILE_NAME):
@@ -44,12 +44,13 @@ def store_last_seen(FILE_NAME, last_seen_id):
 
 ### ID --> READ and WRITE
 
-hashtag = "#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+hashtag = "#searchBotTester123"
 
 
 def search_bot():
+    time.sleep(3)
     # While it retrieves tweets
-    print("Searching for tweets...")
+    print("Retrieving...")
     # While it retrieves tweets
 
     tweets = api.search(hashtag, tweet_mode='extended')
@@ -63,6 +64,7 @@ def search_bot():
             last_fav_tweet = tweet.id
             api.update_status(f"@{tweet.user.screen_name} hello world!", tweet.id)
             print("Replied!", flush=True)
+            time.sleep(2)
             api.create_favorite(last_fav_tweet)
             print("Liked!", flush=True)
 
@@ -70,8 +72,9 @@ def search_bot():
             store_last_seen(FILE_NAME, tweet.id)
 
         except tweepy.TweepError as e:
-            print("Already Replied! More info in the next line:", flush=True)
-            print(e.reason)
+            print("\033[1;36;40m Already Replied! More info in the next line: \033", flush=True)
+            print("---------------------------------------------------")
+            print(f"\033[1;32;40m {e.reason} \033")
 
 
 while True:
