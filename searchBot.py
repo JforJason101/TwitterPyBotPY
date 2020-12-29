@@ -3,6 +3,7 @@ import logging
 import time
 import os
 from os import environ
+
 print("Hi! This is the first iteration of the Twitter Bot!")
 time.sleep(5)
 logging.basicConfig(level=logging.INFO)
@@ -26,6 +27,7 @@ logger.info(" --> AUTHENTICATED!")
 ### ID --> READ and WRITE
 
 FILE_NAME = "last_seen.txt"
+
 
 # READ
 def read_last_seen(FILE_NAME):
