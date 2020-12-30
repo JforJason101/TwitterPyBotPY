@@ -9,10 +9,10 @@ time.sleep(5)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
-consumer_key = "F7h7NoPTabp1XDADhBboO11lX"
-consumer_secret = "GoOYoFJ82or7XrKZF5yeN0rLz37QifH5DGilDURZTT34drnatw"
-key = "1342268696425758722-l3nuC7FzCTHEAE1gWvwEpfyOoeJjiP"
-secret = "gnA638d7G1OIxzKrz0Xh1y9pvoLVIxG3LGc4PAsVqv3nw"
+consumer_key = "PrqZljUA99rYKgFAMILVnUXNe"
+consumer_secret = "omhpJaKoqoZoGV5I2O137XxS3Hn0oW9ggpwTGA1dPzrUKZRysB"
+key = "1342268696425758722-XNK2jCnERohl2uDQbOcHZQdvMG9JFU"
+secret = "cmjoUW8ChGMPEpk7DDLNfukSBVKnnXbi51Gn1obWMQf0A"
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(key, secret)
@@ -56,7 +56,7 @@ def search_bot():
     print("Retrieving...")
     # While it retrieves tweets
 
-    tweets = api.search(hashtag, tweet_mode='extended')
+    tweets = api.mentions_timeline(tweet_mode='extended')
 
     # FOR-LOOP
     for tweet in reversed(tweets):
